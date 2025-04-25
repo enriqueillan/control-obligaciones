@@ -1,0 +1,24 @@
+html, body {
+    margin: 0; /* Elimina cualquier margen predeterminado */
+    padding: 0; /* Elimina cualquier padding predeterminado */
+    height: 100%; /* Asegura que el html y body ocupen toda la altura */
+    overflow: hidden; /* Evita el scroll en el nivel superior */
+  }
+  
+  .sidenav-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 64px); /* Resta la altura del app-bar */
+    overflow: hidden; /* Evita el scroll dentro del contenedor */
+  }
+  
+  mat-sidenav {
+    width: 350px; /* Ancho del sidebar */
+    padding: 0 20px; /* Espacio interno para separar los elementos */
+    overflow-y: auto; /* Permite el scroll solo dentro del sidebar si es necesario */
+  }
+  
+  mat-sidenav-content {
+    flex: 1; /* El contenido principal ocupa el resto del espacio */
+    overflow-y: auto; /* Permite el scroll solo dentro del contenido principal */
+  }

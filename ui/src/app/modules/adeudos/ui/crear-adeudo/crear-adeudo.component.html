@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Crear Adeudo</h2>
+    <form [formGroup]="creditoForm" (ngSubmit)="onSubmit()">
+      <!-- Campo Nombre -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre del Cliente</mat-label>
+        <input matInput formControlName="nombreCliente" required />
+        @if(creditoForm.get('nombreCliente')?.invalid && creditoForm.get('nombreCliente')?.touched) {
+            <mat-error>
+                El nombre es obligatorio.
+              </mat-error>
+        }        
+      </mat-form-field>
+  
+      <!-- Campo Monto -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Monto del Adeudo</mat-label>
+        <input matInput type="number" formControlName="monto" required />
+        @if(creditoForm.get('monto')?.invalid && creditoForm.get('monto')?.touched) {
+            <mat-error>
+                El monto es obligatorio y debe ser mayor a 0.
+              </mat-error>
+        }
+        
+      </mat-form-field>
+  
+      <!-- Campo Fecha -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de Solicitud</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaSolicitud" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        @if (creditoForm.get('fechaSolicitud')?.invalid && creditoForm.get('fechaSolicitud')?.touched) {
+            <mat-error>La fecha es obligatoria.</mat-error>
+          }       
+      </mat-form-field>
+  
+      <!-- Botón de Envío -->
+      <div class="button-container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="creditoForm.invalid">
+          Crear Adeudo
+        </button>
+      </div>
+    </form>
+  </div>

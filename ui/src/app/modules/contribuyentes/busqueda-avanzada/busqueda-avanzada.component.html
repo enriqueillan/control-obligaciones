@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Búsqueda Avanzada</h2>
+<div mat-dialog-content>
+  <!-- Formulario de búsqueda avanzada -->
+  <form [formGroup]="formulario" (ngSubmit)="buscarContribuyentes()" class="search-form">
+    <div class="advanced-search">
+      <!-- Campo de búsqueda por Nombre -->
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" placeholder="Ingrese el nombre" />
+      </mat-form-field>
+
+      <!-- Campo de búsqueda por RFC -->
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>RFC</mat-label>
+        <input matInput formControlName="rfc" placeholder="Ingrese el RFC" />
+      </mat-form-field>
+
+      <!-- Botón de búsqueda -->
+      <button mat-raised-button color="accent" type="submit">Buscar</button>
+    </div>
+  </form>
+
+  <!-- Resultados de búsqueda -->
+  <div *ngIf="resultados.length > 0">
+    <h4>Resultados</h4>
+    <table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+      <!-- Columna: Nombre -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let resultado">{{ resultado.nombre }}</td>
+      </ng-container>
+
+      <!-- Columna: RFC -->
+      <ng-container matColumnDef="rfc">
+        <th mat-header-cell *matHeaderCellDef>RFC</th>
+        <td mat-cell *matCellDef="let resultado">{{ resultado.rfc }}</td>
+      </ng-container>
+
+      <!-- Columna: Tipo -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let resultado">{{ resultado.tipo }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnas;" (click)="seleccionarContribuyente(row)"></tr>
+    </table>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">Cancelar</button>
+</div>
