@@ -1,0 +1,46 @@
+form {
+    margin: 20px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .contribuyente-info {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Para que todo vaya hacia abajo */
+    gap: 16px; /* Espaciado entre campos */
+    max-width: 600px; /* El ancho máximo que tú quieras */
+    width: 100%; /* Que use el 100% disponible hasta llegar al max-width */
+  }
+
+  .full-width {
+    grid-column: span 2; /* Este componente abarca las dos columnas */
+  }
+
+  /* El primer elemento ocupa solo la columna 1 */
+  .item-1 {
+    grid-column: 1; /* Coloca este elemento en la columna 1 */
+  }
+
+  /* El segundo elemento ocupa la columna 1 en la siguiente fila */
+  .item-2 {
+    grid-column: 1; /* Coloca este elemento en la columna 1 de la segunda fila */
+  }
