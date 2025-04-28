@@ -50,7 +50,6 @@
         </div>
       </ng-container>
 
-
       <!-- Este bloque ya lo tienes tras la búsqueda -->
       <div *ngIf="form.get('datosFiscales')?.value && contribuyenteEncontrado() as contribuyente"
         class="contribuyente-info full-width">
@@ -68,41 +67,41 @@
 
       <!-- Domicilio -->
     
-      <mat-form-field class="item-1">
+      <mat-form-field appearance="outline" class="item-1">
         <input matInput formControlName="codigoPostal" placeholder="Código Postal" />
       </mat-form-field>
 
-      <mat-form-field class="item-1">
+      <mat-form-field appearance="outline" class="item-1">
         <input matInput [value]="estadoSignal()" formControlName="estado" placeholder="Estado" readonly />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput [value]="municipioSignal()" formControlName="municipio" placeholder="Municipio" readonly />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Localidad</mat-label>
         <mat-select formControlName="localidad">
           <mat-option *ngFor="let localidad of localidades()" [value]="localidad">{{ localidad }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Colonia</mat-label>
         <mat-select formControlName="colonia">
           <mat-option *ngFor="let colonia of colonias()" [value]="colonia">{{ colonia }}</mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="full-width">
+      <mat-form-field appearance="outline" class="full-width">
         <input matInput formControlName="calle" placeholder="Calle" />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput formControlName="numeroExterior" placeholder="Número Exterior" />
       </mat-form-field>
 
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <input matInput formControlName="numeroInterior" placeholder="Número Interior" />
       </mat-form-field>
     </div>
